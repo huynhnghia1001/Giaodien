@@ -1,0 +1,256 @@
+﻿<dx:ThemedWindow
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:Views="clr-namespace:QLKHODevExpress.Views"
+    xmlns:vm="clr-namespace:QLKHODevExpress.ViewModels"
+    xmlns:Menu="clr-namespace:QLKHODevExpress.Utilities"
+    xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts" 
+    x:Class="QLKHODevExpress.MainWindow"
+    Title="Vira Google Map Review" Height="600" Width="1040"
+    WindowStartupLocation="CenterScreen" Icon="/vira-favicon.png">
+	
+	
+    <dx:ThemedWindow.DataContext>
+        <vm:NavigationViewModel/>
+    </dx:ThemedWindow.DataContext>
+    <Grid>
+        
+        <!--Window border-->
+        <Border Background="#ffffff"
+                CornerRadius="20"/>
+        <!--Base Grid-->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="32"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid>
+                <DockPanel>
+                    <Menu FontSize="12" FontFamily="/Fonts/#Rubik" DockPanel.Dock="Top">
+                        <MenuItem Header="File">
+                            <MenuItem Header="Setting"/>
+                            <MenuItem Header="Exit"/>
+                        </MenuItem>
+                        <MenuItem Header="Edit">
+                            <MenuItem Header="Undo"/>
+                            <MenuItem Header="Redo"/>
+                            <MenuItem Header="Copy"/>
+                        </MenuItem>
+                        <MenuItem Header="View">
+                            <MenuItem Header="FullScren"/>
+                            <MenuItem Header="Status bar"/>
+                            <MenuItem Header="Tool bar"/>
+                        </MenuItem>
+                        <MenuItem Header="Help Trần Đình Nam">
+                            <MenuItem Header="Help portal"/>
+                            <MenuItem Header="Visit website"/>
+                            <MenuItem Header="Check for update"/>
+                            <MenuItem Header="About"/>
+                        </MenuItem>
+                       <MenuItem Header="Database">
+                            <MenuItem Header="Connect to the database"/>
+                            <MenuItem Header="Disconnect from the database"/>
+                            <Separator />
+                            <MenuItem Header="Add a database" InputGestureText="Ctrl+O"/>
+                            <MenuItem Header="Edit a database"/>
+                            <MenuItem Header="Remove a database" />
+                            <Separator />
+                            <MenuItem Header="Export the database" />
+                            <MenuItem Header="Vacuum" />
+                            <MenuItem Header="Integrity check" />
+                            <Separator />
+                            <MenuItem Header="Refresh selected database schema" InputGestureText="F5"/>
+                            <MenuItem Header="Refresh all database schemas" InputGestureText="Shift+f5" />
+                            <Separator />
+                            <MenuItem Header="Quit" InputGestureText="Ctrl+Q"/>
+                        </MenuItem>
+                        <MenuItem  Header="Structure">
+                            <MenuItem Header="Create a table"/>
+                            <MenuItem Header="Edit the table"/>
+                            <MenuItem Header="Delete the table"/>
+                            <Separator />
+                            <MenuItem Header="Create an index"/>
+                            <MenuItem Header="Edit the index"/>
+                            <MenuItem Header="Delete the index"/>
+                            <Separator />
+                            <MenuItem Header="Create a trigger"/>
+                            <MenuItem Header="Edit the trigger"/>
+                            <MenuItem Header="Delete the trigger"/>
+                            <Separator />
+                            <MenuItem Header="Create a view"/>
+                            <MenuItem Header="Edit the view"/>
+                            <MenuItem Header="Delete the view"/>
+                        </MenuItem>
+                        <MenuItem Header="View">
+                            <MenuItem Header="Database"/>
+                            <MenuItem Header="Status"/>
+                            <Separator />
+                            <MenuItem Header="Database toolbar"/>
+                            <MenuItem Header="Structure toolbar"/>
+                            <MenuItem Header="Tools"/>
+                            <MenuItem Header="Window list"/>
+                            <MenuItem Header="View toolbar"/>
+                            <Separator />
+                            <MenuItem Header="Tile windows"/>
+                            <MenuItem Header="Tile windows horizontally"/>
+                            <MenuItem Header="The windows vertically"/>
+                            <MenuItem Header="Cascade windows"/>
+                            <Separator />
+                            <MenuItem Header="Close current window"/>
+                            <MenuItem Header="Close all window"/>
+                            <MenuItem Header="Close other windows"/>
+                            <MenuItem Header="Close windows on the left"/>
+                            <MenuItem Header="Close windows on the right"/>
+                            <Separator />
+                            <MenuItem Header="Restore recently closed window"/>
+                            <MenuItem Header="Rename selected window"/>
+                            <Separator />
+                            <MenuItem Header="Window list">
+                                <MenuItem Header="Hello"></MenuItem>
+                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="Tools">
+                            <MenuItem Header="Open SQL editor" InputGestureText="Alt+E"/>
+                            <MenuItem Header="Open DDL history" InputGestureText="Ctrl+H"/>
+                            <MenuItem Header="Open SQL functions editor" InputGestureText="Ctrl+Shift+F"/>
+                            <MenuItem Header="Open code snippets editor" InputGestureText="Ctrl+Shift+P"/>
+                            <MenuItem Header="Open Collations editor" InputGestureText="Ctrl+Shift+C"/>
+                            <MenuItem Header="Open extension manager" InputGestureText="Ctrl+Shift+E"/>
+                            <MenuItem Header="Import"/>
+                            <MenuItem Header="Export"/>
+                            <Separator />
+                            <MenuItem Header="Open configuration dialog" InputGestureText="F10"/>
+                        </MenuItem>
+                        <MenuItem Header="Help">
+                            <MenuItem Header="User Manual" InputGestureText="F1"/>
+                            <MenuItem Header="SQLite documentation"/>
+                            <MenuItem Header="Open home page"/>
+                            <Separator />
+                            <MenuItem Header="Check for updates"/>
+                            <Separator />
+                            <MenuItem Header="Report a bug"/>
+                            <MenuItem Header="Propose a new feature"/>
+                            <MenuItem Header="Bugs and feature requests"/>
+                            <Separator />
+                            <MenuItem Header="Licenses"/>
+                            <MenuItem Header="Donate"/>
+                            <MenuItem Header="About" InputGestureText="Shift+F1"/>
+                        </MenuItem>
+                    </Menu>
+                    <!-- Add your content here -->
+                </DockPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                    <StackPanel Background="#f0f0f0" Orientation="Horizontal">
+                        <Menu:Btn Style="{StaticResource BtnStyle}" 
+                              Command="{Binding HelpCommand}"
+                              IsChecked="True">
+                            <Grid>
+                                <Image Source="Images/analytic.png"
+                                   Style="{StaticResource Image_Style}"/>
+                                <TextBlock Text="Dashboard" 
+                                       Style="{StaticResource Text_Style}"/>
+                            </Grid>
+
+                        </Menu:Btn>
+                        <Menu:Btn Style="{StaticResource BtnStyle}" 
+                              Command="{Binding HelpCommand}"
+                              IsChecked="True">
+                            <Grid>
+                                <Image Source="Images/comment.png"
+                                   Style="{StaticResource Image_Style}"/>
+                                <TextBlock Text="List of comments/photos" 
+                                       Style="{StaticResource Text_Style}"/>
+                            </Grid>
+
+                        </Menu:Btn>
+                        <Menu:Btn Style="{StaticResource BtnStyle}" 
+                              Command="{Binding HelpCommand}"
+                              IsChecked="True">
+                            <Grid>
+                                <Image Source="Images/accountable.png"
+                                   Style="{StaticResource Image_Style}"/>
+                                <TextBlock Text="List of accounts" 
+                                       Style="{StaticResource Text_Style}"/>
+                            </Grid>
+
+                        </Menu:Btn>
+                        <Menu:Btn Style="{StaticResource BtnStyle}" 
+                              Command="{Binding HelpCommand}"
+                              IsChecked="True">
+                            <Grid>
+                                <Image Source="Images/contact-book.png"
+                                   Style="{StaticResource Image_Style}"/>
+                                <TextBlock Text="List of Map" 
+                                       Style="{StaticResource Text_Style}"/>
+                            </Grid>
+
+                        </Menu:Btn>
+                        <Menu:Btn Style="{StaticResource BtnStyle}" 
+                              Command="{Binding HelpCommand}"
+                              IsChecked="True">
+                            <Grid>
+                                <Image Source="Images/server.png"
+                                   Style="{StaticResource Image_Style}"/>
+                                <TextBlock Text="Proxy Configuration" 
+                                       Style="{StaticResource Text_Style}"/>
+                            </Grid>
+
+                        </Menu:Btn> 
+                        <Menu:Btn Style="{StaticResource BtnStyle}" 
+                              Command="{Binding HelpCommand}"
+                              IsChecked="True">
+                            <Grid>
+                                <Image Source="Images/research.png"
+                                   Style="{StaticResource Image_Style}"/>
+                                <TextBlock Text="Google Map Reviews" 
+                                       Style="{StaticResource Text_Style}"/>
+                            </Grid>
+
+                        </Menu:Btn>
+                        <Menu:Btn Style="{StaticResource BtnStyle}" 
+                              Command="{Binding HelpCommand}"
+                              IsChecked="True">
+                            <Grid>
+                                <Image Source="Images/customer-service.png"
+                                   Style="{StaticResource Image_Style}"/>
+                                <TextBlock Text="Help" 
+                                       Style="{StaticResource Text_Style}"/>
+                            </Grid>
+
+                        </Menu:Btn>
+                        <Menu:Btn Style="{StaticResource BtnStyle}" 
+                              Command="{Binding SettingCommand}"
+                              IsChecked="True">
+                            <Grid>
+                                <Image Source="Images/setting (1).png"
+                                   Style="{StaticResource Image_Style}"/>
+                                <TextBlock Text="Setting" 
+                                       Style="{StaticResource Text_Style}"/>
+                            </Grid>
+
+                        </Menu:Btn>
+                        <Menu:Btn Style="{StaticResource BtnStyle}" 
+                              Command="{Binding AboutCommand}"
+                              IsChecked="True">
+                            <Grid>
+                                <Image Source="Images/about.png"
+                                   Style="{StaticResource Image_Style}"/>
+                                <TextBlock Text="About" 
+                                       Style="{StaticResource Text_Style}"/>
+                            </Grid>
+
+                        </Menu:Btn>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+            <Grid Grid.Row="2">
+                <ContentControl x:Name="Pages"
+                                Content="{Binding CurrentView}"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</dx:ThemedWindow>

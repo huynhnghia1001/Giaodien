@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="QLKHODevExpress.Views.About"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QLKHODevExpress.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="1040"
+             Style="{StaticResource Page_Style}">
+    <Grid>
+        <Border Background="#ffffff"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="440"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Image Source="/Images/Zoom.png" Width="120" Height="120"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock FontSize="10" FontFamily="/Fonts/#Rubik" HorizontalAlignment="Center" Text="Terms and Conditions"/>
+                    <TextBlock FontSize="10" FontFamily="/Fonts/#Rubik" HorizontalAlignment="Center" Text="Privacy Policy"/>
+                    <TextBlock FontSize="10" FontFamily="/Fonts/#Rubik" HorizontalAlignment="Center" Text="Intellectual Property Policy"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
+                        FontSize="10" FontFamily="/Fonts/#Rubik"
+                        Text="2023 C pCloud International AG. All rights reserved."/>
+                </Grid>
+            </Grid>
+            <Border Grid.Column="1">
+                <Rectangle Width="2" Height="450" Fill="#696969"/>
+            </Border>
+            <Grid Grid.Column="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="120"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid>
+                            <TextBlock Text="Installed version: 4.1.1" 
+                                       Style="{StaticResource Text_Style}"/>
+                        </Grid>
+                    </Grid>
+                    <Border Grid.Row="1">
+                        <Rectangle Width="550" Height="2" Fill="#696969"/>
+                    </Border>
+                    <Grid Grid.Row="2" VerticalAlignment="Top" Margin="0 15 0 0">
+                        <Grid>
+                            <TextBlock Text="Latest version is already installed" 
+                                       Style="{StaticResource Text_Style}"/>
+                        </Grid>
+                    </Grid>
+                    <Border Grid.Row="3">
+                        <Rectangle Width="550" Height="2" Fill="#696969"/>
+                    </Border>
+                    <Grid Grid.Row="4">
+                        <Button Background="#f0f0f0"
+                                VerticalAlignment="Center" HorizontalAlignment="Right"
+                                Height="40" Width="200" Margin="0 0 30 0"
+                                Content="Check for updates"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
